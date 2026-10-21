@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17130f">
+    <meta name="description" content="Celebrate Mysuru Dasara: explore the grand elephant procession, cultural programs, festival events and more.">
+    <title>Mysuru Dasara — A festival of a thousand stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Mysuru Dasara home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span class="brand-name">MYSURU <span>DASARA</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#programs">The programs</a>
+        <a href="#events">What's on</a>
+        <a href="#elephants">Jumboo Savari</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+      <a class="header-link" href="#events">Plan your visit <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <img class="hero-image" src="{{ url_for('static', filename='images/mysore-dasara-procession.jpg') }}" alt="Decorated Dasara elephants passing through Mysore as crowds watch" fetchpriority="high">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow"><span class="eyebrow-line"></span> MYSURU · INDIA · EVERY OCTOBER</p>
+          <h1 id="hero-title">A festival<br>of a thousand<br><em>stories.</em></h1>
+          <p class="hero-intro">Ten unforgettable days. One city dressed in light.<br>Come feel the magic of Mysuru Dasara.</p>
+          <a class="button button--light" href="#programs">Explore the celebration <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-caption"><span>THE ROYAL CITY, IN FULL CELEBRATION</span><span>TEN DAYS OF CELEBRATION</span></div>
+        <div class="hero-side-note">A TRADITION THAT BRINGS US TOGETHER</div>
+      </section>
+
+      <section class="intro section-shell" aria-labelledby="intro-title">
+        <div class="intro-label"><span class="small-star" aria-hidden="true">✳</span> MORE THAN A FESTIVAL</div>
+        <div class="intro-copy">
+          <h2 id="intro-title">An entire city<br>comes <em>alive.</em></h2>
+          <p>For ten days, Mysuru opens its heart. Palaces glow, the streets fill with music, and generations gather to celebrate a story that belongs to everyone.</p>
+          <a class="text-link" href="#events">Find your kind of Dasara <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="intro-photo">
+          <img src="{{ url_for('static', filename='images/mysore-palace-dasara-illumination.jpg') }}" alt="Mysore Palace illuminated with festival lights at night" loading="lazy">
+          <span class="photo-note">THE CITY SHINES BRIGHTER TOGETHER</span>
+        </div>
+      </section>
+
+      <section class="programs section-shell" id="programs" aria-labelledby="programs-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow--dark">MAKE EVERY DAY A STORY</p>
+            <h2 id="programs-title">The <em>programs</em></h2>
+          </div>
+          <p>From the first lights of the evening to the grand finale, find the moments you don't want to miss.</p>
+        </div>
+        <div class="program-grid">
+          {% for program in programs %}
+          <article class="program-card {{ program.class }}">
+            <a class="program-image" href="#events" aria-label="See event details for {{ program.title }}">
+              <img src="{{ program.image }}" alt="{{ program.alt }}" loading="lazy">
+              <span class="program-number">{{ program.number }}</span>
+              <span class="image-arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="program-details">
+              <div>
+                <p class="card-kicker">{{ program.category }}</p>
+                <h3>{{ program.title }}</h3>
+              </div>
+              <div class="program-time"><span>{{ program.date }}</span><span>{{ program.time }}</span></div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="elephant-feature" id="elephants" aria-labelledby="elephant-title">
+        <img src="{{ url_for('static', filename='images/mysore-ambari.jpg') }}" alt="The decorated golden ambari from the Mysore Dasara procession" loading="lazy">
+        <div class="elephant-overlay"></div>
+        <div class="elephant-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> THE HEART OF VIJAYADASHAMI</p>
+          <h2 id="elephant-title">A procession<br>like <em>no other.</em></h2>
+          <p>The beloved Jumboo Savari brings the city together in a grand celebration of heritage, pageantry and pride.</p>
+          <a class="button button--light" href="#events">Discover the procession <span aria-hidden="true">↗</span></a>
+        </div>
+        <span class="feature-caption">JUMBOO SAVARI · VIJAYADASHAMI</span>
+      </section>
+
+      <section class="events section-shell" id="events" aria-labelledby="events-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow--dark">SAVE THE MOMENT</p>
+            <h2 id="events-title">Dates to <em>remember</em></h2>
+          </div>
+          <p>Make a little room in your calendar for a lot of wonder.</p>
+        </div>
+        <div class="event-list">
+          {% for event in events %}
+          <article class="event-card">
+            <div class="event-date"><strong>{{ event.day }}</strong><span>{{ event.month }}</span></div>
+            <div class="event-info"><h3>{{ event.title }}</h3><p>{{ event.detail }}</p><span class="event-location">⌖ &nbsp;{{ event.location }}</span></div>
+            <img src="{{ event.image }}" alt="{{ event.alt }}" loading="lazy">
+            <span class="event-arrow" aria-hidden="true">↗</span>
+          </article>
+          {% endfor %}
+        </div>
+        <p class="schedule-note">Programme dates and timings vary each year. Please confirm details with official festival announcements before your visit.</p>
+      </section>
+
+      <section class="gallery-section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-shell">
+          <div class="section-heading gallery-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> LITTLE GLIMPSES, BIG FEELINGS</p>
+              <h2 id="gallery-title">Mysuru, <em>in moments.</em></h2>
+            </div>
+            <p>Every light, every laugh, every tradition. This is what Dasara feels like.</p>
+          </div>
+          <div class="gallery-grid">
+            {% for item in gallery %}
+            <figure class="gallery-item {{ item.class }}">
+              <img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy">
+              <figcaption>{{ item.caption }}</figcaption>
+            </figure>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="visit section-shell" aria-labelledby="visit-title">
+        <div>
+          <p class="eyebrow eyebrow--dark">YOUR STORY STARTS HERE</p>
+          <h2 id="visit-title">See you in<br><em>Mysuru?</em></h2>
+        </div>
+        <div class="visit-copy">
+          <p>Bring your people. Follow the lights. Stay for the stories. The city is ready to welcome you.</p>
+          <a class="button button--dark" href="#home">Start exploring <span aria-hidden="true">↑</span></a>
+        </div>
+        <span class="visit-flower" aria-hidden="true">✳</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand--footer" href="#home">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span class="brand-name">MYSURU <span>DASARA</span></span>
+      </a>
+      <p>A city. A celebration. A thousand stories.</p>
+      <a href="#home">Back to top ↑</a>
+      <small class="photo-credits">
+        Photos:
+        <a href="https://commons.wikimedia.org/wiki/File:Mysore_Dasara_crowds.jpg" target="_blank" rel="noopener noreferrer">Mysore Dasara crowds</a> by Kalyan Kumar (CC BY-SA 2.0);
+        <a href="https://commons.wikimedia.org/wiki/File:Mysore_Dasara_procession.jpg" target="_blank" rel="noopener noreferrer">Mysore Dasara procession</a> by Kalyan Kumar (CC BY-SA 2.0);
+        <a href="https://commons.wikimedia.org/wiki/File:Mysore_ambari.jpg" target="_blank" rel="noopener noreferrer">Mysore ambari</a> by Lava1996 (CC BY-SA 4.0);
+        <a href="https://commons.wikimedia.org/wiki/File:Mysore_Palace_Dussehra_Illumination.jpg" target="_blank" rel="noopener noreferrer">Mysore Palace Dussehra Illumination</a> by V N GUPTA (CC BY-SA 4.0);
+        <a href="https://commons.wikimedia.org/wiki/File:Night_Illumination_of_Mysore_Palace_01.jpg" target="_blank" rel="noopener noreferrer">Night Illumination of Mysore Palace</a> by Rohit14400 (CC BY-SA 4.0).
+      </small>
+      <small>MYSURU DASARA · CELEBRATE TOGETHER</small>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  </body>
+</html>
