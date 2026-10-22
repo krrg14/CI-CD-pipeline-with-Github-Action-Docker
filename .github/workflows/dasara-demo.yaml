@@ -1,6 +1,8 @@
 name: dasara demo web deployment
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 env:
   IMAGE_NAME: ${{ secrets.DOCKER_USERNAME}}/dasara-web-app:${{ github.sha }}
 
