@@ -176,19 +176,25 @@ The exact files depend on the application.
 
 # 📸 Project Demonstration
 
-## GitHub repo with Workflows
+## 🔗 GitHub Repo with Workflows
 ```
 https://github.com/krrg14/CI-CD-pipeline-with-Github-Action-Docker
 ```
-## Docker image Link
+---
+<img width="1810" height="852" alt="Screenshot 2026-10-22 161323" src="https://github.com/user-attachments/assets/8123dfcd-e7cc-48e8-b586-8783da0c94ee" />
+
+---
+## 🚢 Docker image Link
 ```
 https://hub.docker.com/r/krrg14/dasara-web-app
 ```
-## CI\CD Workflows Results
+---
+## 📌⚙️ CI\CD Workflows Results
 
 <img width="1861" height="980" alt="Screenshot 2026-10-22 113016" src="https://github.com/user-attachments/assets/743a6c3b-9206-42bb-adae-7d5dfd46114a" />
 
-## Snapshot of Deployed App
+---
+## 📸 Snapshot of Deployed App
 
 <img width="1850" height="981" alt="Screenshot 2026-10-22 114550" src="https://github.com/user-attachments/assets/3a2097d8-8460-46b9-a526-04a253aecce8" />
 
